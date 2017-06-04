@@ -19,8 +19,8 @@ module.exports.logError = function(err, msg, quiet=false){
 }
 
 module.exports.logInfo = function(msg, quiet=false){
-	let content = "[info ] "+new Date().toString()+'\n';
-	content += msg;
+	let content = "[time ] "+new Date().toString()+'\n';
+	content += (msg+'\n');
 	writeLog(content);
 	if (!quiet) console.log(content);
 }

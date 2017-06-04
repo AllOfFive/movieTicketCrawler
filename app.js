@@ -7,10 +7,9 @@ const path = require('path');
 const dataHome = require('./env.js').DATA_DIR;
 let HOME_URL = 'https://dianying.taobao.com/showList.htm?spm=a1z21.30466.header.4.SwjzUI&n_s=new';
 let total_idle_time = 0;
-// Handlers.saveHtml('aaa');
+
+init();
 run();
-// simulation();
-// Util.logInfo(getToday());
 
 function run(){
 	superagent
@@ -29,6 +28,14 @@ function run(){
 		});
 		
 	  });
+}
+
+function init(){
+	let data_path = path.resolve(__dirname, 'data');
+	let dataDirExists = fs.existsSync(data_path);
+	if (!dataDirExists) {
+		fs.mkdirSync(data_path);
+	}
 }
 
 function simulation(){
